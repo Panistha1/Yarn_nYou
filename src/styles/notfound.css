@@ -1,0 +1,82 @@
+.notfound-container {
+  min-height: 100vh;
+  background: #fafafa;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.notfound-tag {
+  background: #ffd4c7;
+  color: #ef9c84;
+
+  padding: 10px 25px;
+  border-radius: 30px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  margin-bottom: 20px;
+}
+
+.notfound-container h1 {
+  font-size: 120px;
+  font-family: Quicksand;
+  font-weight: 800;
+  color: #bb6ef5;
+
+  margin: 0;
+}
+
+.notfound-container h2 {
+  font-size: 32px;
+  font-family: Quicksand;
+  color: #222;
+
+  margin: 10px 0 20px;
+}
+
+.notfound-container p {
+  max-width: 500px;
+
+  color: #675E56;
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+.notfound-container button {
+  border: none;
+
+  background: #bb6ef5;
+  color: white;
+
+  padding: 14px 30px;
+  border-radius: 30px;
+
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.notfound-container button:hover {
+  transform: translateY(-2px);
+  background: #a85aea;
+}
+
+@media (max-width: 768px) {
+  .notfound-container h1 {
+    font-size: 90px;
+  }
+
+  .notfound-container h2 {
+    font-size: 24px;
+  }
+}

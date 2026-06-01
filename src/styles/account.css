@@ -1,0 +1,177 @@
+body {
+  background: #f7f4f3;
+}
+
+.account-container {
+
+  width: 1320px;
+
+  margin: 50px auto;
+
+  background: white;
+
+  border-radius: 40px;
+
+  overflow: hidden;
+
+  display: flex;
+}
+
+/* LEFT */
+
+.account-left {
+
+  width: 50%;
+
+  background: #f8d7cd;
+
+  padding: 70px;
+}
+
+.small-tag {
+
+  background: #f9e4de;
+
+  color: #ef9c84;
+
+  padding: 10px 18px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+}
+
+.account-left h1 {
+
+  font-size: 72px;
+
+  line-height: 1.1;
+
+  margin-top: 30px;
+}
+
+.account-left h1 span {
+  color: #ef9c84;
+}
+
+.account-left p {
+
+  margin-top: 25px;
+
+  width: 500px;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+.account-left img {
+
+  width: 520px;
+
+  height: 360px;
+
+  object-fit: cover;
+
+  border-radius: 24px;
+
+  margin-top: 50px;
+}
+
+/* RIGHT */
+
+.account-right {
+
+  width: 50%;
+
+  padding: 90px 80px;
+}
+
+.account-right h1 {
+
+  font-size: 58px;
+}
+
+.account-right p {
+
+  margin-top: 15px;
+
+  color: #777;
+
+  font-size: 18px;
+}
+
+/* FORM */
+
+form {
+
+  margin-top: 50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+form input,
+form select,
+form textarea {
+
+  width: 100%;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  font-size: 16px;
+
+  background: #fafafa;
+
+  color: #222;
+}
+
+form textarea {
+
+  height: 140px;
+
+  resize: none;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+
+  outline: none;
+
+  border: 2px solid #ef9c84;
+
+  background: white;
+}
+
+form button {
+
+  width: 100%;
+
+  height: 65px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background: #ef9c84;
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+}

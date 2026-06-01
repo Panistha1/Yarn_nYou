@@ -1,0 +1,23 @@
+
+.footer {
+  width: 100%;
+
+  background: white;
+
+  margin-top: 40px;
+
+  padding: 60px 60px;
+
+ display: grid;
+  grid-template-columns:  1fr auto 1fr; 
+}
+
+.footer h2 {
+  color: #ef9c84;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  color: #666;
+  line-height: 1.8;
+}

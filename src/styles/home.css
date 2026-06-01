@@ -1,0 +1,270 @@
+body {
+  background: #f7f4f3;
+  font-family: sans-serif;
+}
+
+/* HERO */
+
+.hero {
+  width: 80%;
+
+  margin: 30px auto;
+  background: #f8d7cd;
+  border-radius: 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 60px 60px;
+  gap: 80px;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 460px;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.collection-tag {
+  display: inline-block;
+  background: #f9e4de;
+  color: #ef9c84;
+  padding: 7px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+.hero-left h1 {
+  font-family: Quicksand, sans-serif;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #1c1a17;
+  margin-top: 20px;
+}
+
+.hero-left h1 span {
+  color: #ef9c84;
+  font-family: Inter, sans-serif;
+}
+
+.hero-left p {
+  font-family: Inter, sans-serif;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #675e56;
+  font-weight: 400;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.shop-btn {
+  height: 48px;
+  padding: 0 28px;
+  border: none;
+  border-radius: 9999px;
+  background: #ef9c84;
+  color: #0c0c0c;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.story-btn {
+  height: 48px;
+  padding: 0 24px;
+  color: #f2a68c;
+  font-size: 15px;
+  background: #fff;
+  border-radius: 9999px;
+  border: 1px solid #f2a68c55;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background: #fff;
+  color: #f2a68c;
+  border: 1px solid #f2a68c55;
+}
+
+.story-btn:hover {
+  color: #fff;
+  background: #f2a68c;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.hero-stats h2 {
+  font-family: Quicksand, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1c1a17;
+}
+
+.hero-stats p {
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #675e56;
+}
+
+
+.hero-right img {
+  width: 420px;
+  height: 340px;
+  object-fit: cover;
+}
+
+/* PRODUCTS */
+
+.products-section {
+
+width: 100%;
+  margin: 30px auto;
+  padding: 0px 120px;
+  background-color:#FDF4F180;
+}
+
+.section-title{
+align-content: center;
+  width: 631px;
+  
+}
+
+.section-title h2 {
+  font-family: Quicksand;
+  font-size: 40px;
+  line-height: 36px; 
+  font-weight: 800; 
+  color: #1C1A17FF; 
+  text-align: left;
+  
+}
+
+.section-title p {
+  margin-top: 10px;
+  font-size: 18px;
+ line-height: 24px; 
+  font-weight: 400; 
+  color: #675E56FF; 
+  text-align: left;
+    font-family: Inter;
+
+}
+
+.products-grid {
+ display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.card {
+  width: 300px;
+  background: white;
+  border-radius: 20px;
+  padding: 14px;
+  height:390px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.card h3 {
+  margin-top: 18px;
+  font-size: 24px;
+}
+
+.card p {
+  margin-top: 8px;
+  color: #ef9c84;
+  font-weight: bold;
+}
+
+.card button {
+  width: 100%;
+  height: 48px;
+
+  margin-top: 20px;
+
+  border-radius: 30px;
+  border: 1px solid #f1c8bc;
+
+  background: white;
+  color: #ef9c84;
+
+  cursor: pointer;
+}
+
+/* FEATURES */
+
+.features {
+  width: 85%;
+
+  margin: 30px auto;
+  background: white;
+  border-radius: 24px;
+  padding: 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 20px 30px;
+}
+
+.feature-box h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.feature-box p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* MARQUEE */
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 36px;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
