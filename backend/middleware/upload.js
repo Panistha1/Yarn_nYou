@@ -1,21 +1,32 @@
-const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
 
-// Protects routes that require a logged-in user.
-// Usage: router.get('/some-route', verifyToken, controllerFn)
-module.exports = function verifyToken(req, res, next) {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ message: 'No token provided' });
+// Files get saved to backend/uploads/products with a unique filename
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '..', 'uploads', 'products'));
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
   }
+});
 
-  const token = authHeader.split(' ')[1];
+function fileFilter(req, file, cb) {
+  const allowedTypes = /jpeg|jpg|png|webp/;
+  const isAllowed = allowedTypes.test(path.extname(file.originalname).toLowerCase());
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // { userId, role }
-    next();
-  } catch (err) {
-    return res.status(403).json({ message: 'Invalid or expired token' });
+  if (isAllowed) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only .jpeg, .jpg, .png and .webp images are allowed'));
   }
-};
+}
+
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB per image
+});
+
+module.exports = upload;
