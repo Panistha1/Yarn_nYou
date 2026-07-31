@@ -1,0 +1,139 @@
+.admin-settings-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 24px;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.settings-header h1 {
+  font-size: 2rem;
+  color: #5b3a3a;
+  margin-bottom: 4px;
+}
+
+.admin-subtext {
+  color: #8a7a7a;
+}
+
+.save-btn {
+  background: #e08a6d;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loading-text,
+.coming-soon-text {
+  text-align: center;
+  color: #8a7a7a;
+  padding: 50px 0;
+}
+
+.settings-tabs {
+  display: flex;
+  gap: 6px;
+  background: #fdf6f3;
+  border: 1px solid #f0dede;
+  border-radius: 24px;
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.settings-tabs button {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 18px;
+  font-size: 0.88rem;
+  color: #8a7a7a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.settings-tabs button.active {
+  background: #e08a6d;
+  color: #fff;
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-section {
+  background: #fff;
+  border: 1px solid #f0dede;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.settings-section h3 {
+  font-size: 1.05rem;
+  color: #5b3a3a;
+  margin-bottom: 4px;
+}
+
+.section-subtext {
+  color: #8a7a7a;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.settings-row {
+  display: flex;
+  gap: 20px;
+}
+
+.settings-row label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #5b3a3a;
+}
+
+.settings-row input,
+.settings-row select {
+  font-weight: 400;
+  padding: 10px 12px;
+  border: 1px solid #e3cccc;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: #3a2a2a;
+}
+
+.field-hint {
+  font-weight: 400;
+  font-size: 0.76rem;
+  color: #a99;
+}
+
+@media (max-width: 700px) {
+  .settings-row {
+    flex-direction: column;
+  }
+
+  .settings-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

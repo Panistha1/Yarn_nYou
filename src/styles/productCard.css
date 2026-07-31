@@ -1,0 +1,75 @@
+/* ProductCard — used on Home (featured/recommended) and Shop (grid).
+   Previously lived only in home.css, which meant any page using this
+   component depended on an unrelated page's stylesheet being loaded.
+   All colors/sizes below are unchanged from the original home.css. */
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(28, 26, 23, 0.12);
+}
+
+.card {
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card h3 {
+  text-align: center;
+  min-height: 56px; /* keeps all cards the same height */
+}
+
+.card p {
+  text-align: center;
+}
+
+.card button {
+  width: 100%;
+  height: 48px;
+
+  margin-top: 20px;
+
+  border-radius: 30px;
+  border: 1px solid #ef9c84;
+
+  background: white;
+  color: #ef9c84;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.card button:hover:not(:disabled) {
+  background: #ef9c84;
+  color: white;
+}
+
+.card button:disabled {
+  border-color: #e5ded9;
+  color: #b8afa8;
+  cursor: not-allowed;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}

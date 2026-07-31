@@ -1,0 +1,123 @@
+.admin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 32px;
+  background: #fdfaf7;
+  border-bottom: 1px solid #f0dede;
+  box-sizing: border-box;
+  /* Was static before — it scrolled away while the sidebar (sticky,
+     offset 60px) stayed put, so the sidebar looked like it "jumped"
+     down into the gap left behind. Sticky here fixes that. */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #8a7a7a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid #e3cccc;
+  border-radius: 18px;
+}
+
+.store-link:hover {
+  background: #f6ebe8;
+  color: #5b3a3a;
+}
+
+.admin-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.admin-logo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e08a6d;
+  text-decoration: none;
+}
+
+.admin-logo span {
+  color: #5b3a3a;
+  font-weight: 400;
+}
+
+.admin-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.admin-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e08a6d;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  user-select: none;
+}
+
+.admin-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #3a2a2a;
+}
+
+.admin-role {
+  font-size: 0.78rem;
+  color: #a99;
+}
+
+.admin-logout-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #b45a5a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.admin-logout-btn:hover {
+  background: #fbeaea;
+}
+
+@media (max-width: 768px) {
+  .admin-navbar {
+    height: auto;
+    min-height: 60px;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 20px;
+    position: static;
+  }
+
+  .admin-navbar-left {
+    gap: 20px;
+  }
+
+  .admin-user-info {
+    display: none;
+  }
+}

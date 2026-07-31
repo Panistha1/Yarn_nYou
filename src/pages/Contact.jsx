@@ -1,12 +1,45 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/contact.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLocationDot, faComment } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
+import { useState } from "react";
+import { showSuccess, showError } from "../utils/toast";
 
 function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      showError("Please fill in your name, email, and message");
+      return;
+    }
+
+    // NOTE: there's no backend endpoint to receive contact messages yet
+    // (no contactController/contactRoutes). For now this just confirms
+    // to the user that their message was captured; wire this up to a
+    // real /api/contact endpoint once one exists.
+    setSending(true);
+    setTimeout(() => {
+      showSuccess("Thanks for reaching out! We'll get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setSending(false);
+    }, 400);
+  };
+
   return (
     <>
       <Navbar />
@@ -27,33 +60,45 @@ function Contact() {
 
       <section className="contact-content">
         <div className="contact-form-card">
-  <form className="contact-form">
+  <form className="contact-form" onSubmit={handleSubmit}>
     <label>Your Name</label>
     <input
       type="text"
+      name="name"
       placeholder="Enter your name"
+      value={formData.name}
+      onChange={handleChange}
     />
 
     <label>Email Address</label>
     <input
       type="email"
+      name="email"
       placeholder="Enter your email"
+      value={formData.email}
+      onChange={handleChange}
     />
 
     <label>Subject</label>
     <input
       type="text"
+      name="subject"
       placeholder="What is your inquiry?"
+      value={formData.subject}
+      onChange={handleChange}
     />
 
     <label>Your Message</label>
     <textarea
+      name="message"
       rows="5"
       placeholder="Tell us everything about your crochet dream..."
+      value={formData.message}
+      onChange={handleChange}
     ></textarea>
 
-    <button type="submit">
-      Send Message
+    <button type="submit" disabled={sending}>
+      {sending ? "Sending..." : "Send Message"}
     </button>
 
   </form>

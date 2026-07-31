@@ -1,0 +1,16 @@
+/* This file used to be the untouched Vite scaffold template (unrelated
+   purple theme vars, a border down both sides of #root, globally
+   centered text, h1/h2 rules that fought with every page's own
+   headings). All real design tokens now live in theme.css — this file
+   only keeps the couple of genuinely shared utility classes that
+   several pages depend on. */
+
+.shop-status {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 40px 0;
+}
+
+.shop-error {
+  color: var(--color-danger);
+}

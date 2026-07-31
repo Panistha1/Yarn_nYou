@@ -6,8 +6,7 @@ body {
 /* HERO */
 
 .hero {
-  width: 80%;
-
+  max-width: 1200px;
   margin: 30px auto;
   background: #f8d7cd;
   border-radius: 32px;
@@ -16,15 +15,14 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 60px 60px;
-  gap: 80px;
+  padding: 60px;
+  gap: 60px;
 }
 
 .hero-left {
   flex: 1;
   max-width: 460px;
   text-align: left;
-  margin-left: 100px;
 }
 
 .collection-tag {
@@ -61,6 +59,7 @@ body {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 30px;
 }
@@ -102,6 +101,7 @@ body {
 
 .hero-stats {
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   margin-top: 40px;
 }
@@ -123,103 +123,63 @@ body {
   color: #675e56;
 }
 
-
 .hero-right img {
   width: 420px;
   height: 340px;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 /* PRODUCTS */
 
 .products-section {
-
-width: 100%;
+  max-width: 1200px;
   margin: 30px auto;
-  padding: 0px 120px;
-  background-color:#FDF4F180;
+  padding: 0 40px;
+  background-color: #FDF4F180;
 }
 
-.section-title{
-align-content: center;
-  width: 631px;
-  
+.section-title {
+  /* Was a hardcoded "width: 631px" — only ever looked right at one
+     exact viewport size. max-width lets it shrink on smaller screens
+     instead of overflowing or leaving a huge empty gap next to it. */
+  max-width: 631px;
 }
 
 .section-title h2 {
   font-family: Quicksand;
   font-size: 40px;
-  line-height: 36px; 
-  font-weight: 800; 
-  color: #1C1A17FF; 
+  line-height: 1.15;
+  font-weight: 800;
+  color: #1C1A17FF;
   text-align: left;
-  
 }
 
 .section-title p {
   margin-top: 10px;
   font-size: 18px;
- line-height: 24px; 
-  font-weight: 400; 
-  color: #675E56FF; 
+  line-height: 24px;
+  font-weight: 400;
+  color: #675E56FF;
   text-align: left;
-    font-family: Inter;
-
+  font-family: Inter;
 }
 
 .products-grid {
- display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  /* Was a hardcoded "repeat(4, 1fr)" with 260px-wide cards — needed
+     roughly 1150px+ of space just for the grid itself, so it would
+     overflow the viewport on laptops and phones alike. auto-fill lets
+     it reflow to however many columns actually fit. */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
   margin-top: 40px;
-}
-
-.card {
-  width: 300px;
-  background: white;
-  border-radius: 20px;
-  padding: 14px;
-  height:390px;
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.card h3 {
-  margin-top: 18px;
-  font-size: 24px;
-}
-
-.card p {
-  margin-top: 8px;
-  color: #ef9c84;
-  font-weight: bold;
-}
-
-.card button {
-  width: 100%;
-  height: 48px;
-
-  margin-top: 20px;
-
-  border-radius: 30px;
-  border: 1px solid #f1c8bc;
-
-  background: white;
-  color: #ef9c84;
-
-  cursor: pointer;
 }
 
 /* FEATURES */
 
 .features {
-  width: 85%;
-
+  max-width: 1020px;
   margin: 30px auto;
   background: white;
   border-radius: 24px;
@@ -267,4 +227,64 @@ align-content: center;
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* RESPONSIVE — this page had zero media queries before; the fixed
+   widths above (hero, section-title, 4-column grid, hero image) would
+   overflow badly on anything narrower than a wide desktop. */
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-buttons,
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-right img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+
+  .section-title {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .section-title h2,
+  .section-title p {
+    text-align: center;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .products-section {
+    padding: 0 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
 }

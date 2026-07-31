@@ -18,24 +18,37 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(8px); 
+  backdrop-filter: blur(8px);
   padding: 0 40px;
+  gap: 24px;
   box-shadow: 0px 2px 6px #00000014, 0px 0px 0px #171a1f00;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
+.logo-link {
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .logo {
   font-family: Quicksand;
-  font-size: 23px; 
-  line-height: 23px; 
-  font-weight: 700; 
+  font-size: 23px;
+  line-height: 23px;
+  font-weight: 700;
   color: #F2A68CFF;
 }
 
+/* Was pulled into place with "margin-left: -250px" — only lined up
+   correctly at one exact navbar width and broke as soon as the layout
+   shifted (e.g. after adding the account name back in). A centered
+   flex item does the same job without depending on an exact width. */
 .nav-links {
   display: flex;
   list-style: none;
-  margin-left: -250px;
+  flex: 1;
+  justify-content: center;
   gap: 30px;
 }
 
@@ -47,36 +60,220 @@ body {
   padding: 10px 18px;
   border-radius: 30px;
   transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-btn:hover {
   background: #f8d7cd;
-
   color: #ef9c84;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* Only used on pages where nav-links are hidden (logged-in
+   account/dashboard views) — there, .navbar has just 2 real children
+   (logo + this group), so without this, the group gets shoved to the
+   far-right edge with a big dead gap and the search box looks
+   stranded. On pages where nav-links ARE shown, this class isn't
+   applied — letting nav-right grow here too would fight nav-links'
+   own flex:1 and throw off the centering (that's the bug from before). */
+.nav-right--expand {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-right--expand .nav-search-form {
+  flex: 1;
+  max-width: 420px;
+  min-width: 0;
+}
+
+/* Both the search form and its input were nudged into vertical
+   alignment with translateY() hacks, fighting against the
+   align-items: center already set on .nav-right above. Removing the
+   hacks lets the flexbox actually do the centering — this also means
+   it keeps working if the navbar's height ever changes, instead of
+   needing the pixel offsets re-tuned by hand. */
+.nav-right form {
+  display: inline-flex;
+  /* This app doesn't scope its CSS per page, so a generic "form { }"
+     rule from login.css/register.css/account.css stays active in the
+     document once you've visited any of those pages in the same
+     session — and since this rule never used to set flex-direction,
+     login.css's "flex-direction: column" would silently win and stack
+     the input/button vertically. Pinning every property a bare
+     "form" selector elsewhere might set makes this immune to that. */
+  flex-direction: row;
+  margin: 0;
+  align-items: center;
+  background: #f7f4f3;
+  border-radius: 30px;
+  overflow: hidden;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .nav-right input {
-  width: 320px;
-  height: 48px;
-
+  width: 200px;
+  min-width: 0;
+  height: 40px;
   border: none;
-  border-radius: 30px;
-
-  background: #f7f4f3;
-
-  padding: 0 20px;
-
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 0 20px;
   font-size: 15px;
+  box-shadow: none;
+}
+
+.nav-right input:focus {
+  outline: none;
+}
+
+.nav-right form:focus-within {
+  outline: 2px solid #f2a68c;
+}
+
+/* Search used to be a bare input with no visible way to trigger it
+   besides pressing Enter — nothing signaled it was actionable. */
+.nav-search-btn {
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #8a7a7a;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.nav-search-btn:hover {
+  color: #ef9c84;
+}
+
+/* Clear the native "x" the browser adds to type="search" fields so it
+   doesn't collide with our own search icon button. */
+.nav-right input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
 }
 
 .icon {
   font-size: 20px;
   cursor: pointer;
   color: #222;
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  padding: 6px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #d96f6f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.nav-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #F2A68CFF;
+  color: #fff;
+  font-family: Quicksand, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  user-select: none;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.nav-avatar:hover {
+  background: #ef9c84;
+}
+
+/* Account link previously showed only the avatar circle with no name
+   anywhere in the navbar. */
+.nav-account {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 6px;
+  text-decoration: none;
+}
+
+.nav-account-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+}
+
+/* Between roughly 700-1150px, logo + nav-links + a full search box +
+   cart + account no longer fit on one line, but this range still isn't
+   narrow enough to justify the full stacked mobile layout below. The
+   text links are the least essential thing here (people can still get
+   to Shop/Contact from the footer or logo), so they're what gives way
+   first — keeping search/cart/account intact and on one row all the
+   way down to the true mobile breakpoint. */
+@media (max-width: 1150px) {
+  .nav-links {
+    display: none;
+  }
+
+  /* nav-links just disappeared above regardless of the showLinks prop,
+     so nav-right needs to expand here too, or the search box ends up
+     stranded with a big dead gap exactly like the no-links case. */
+  .nav-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .nav-search-form {
+    flex: 1;
+    max-width: 420px;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    position: static;
+  }
+
+  .nav-right input {
+    width: 140px;
+  }
+
+  .nav-account-name {
+    display: none;
+  }
 }

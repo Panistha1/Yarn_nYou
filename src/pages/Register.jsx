@@ -10,6 +10,9 @@ import {
   useNavigate
 } from "react-router-dom";
 
+import { registerUser } from "../api/auth";
+import { showSuccess, showError } from "../utils/toast";
+
 function Register() {
 
   const navigate = useNavigate();
@@ -17,9 +20,13 @@ function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
+    address: "",
     password: "",
     confirmPassword: ""
   });
+
+  const [loading, setLoading] = useState(false);
 
   /* HANDLE INPUT */
 
@@ -34,7 +41,7 @@ function Register() {
 
   /* HANDLE SUBMIT */
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
 
     e.preventDefault();
 
@@ -43,11 +50,24 @@ function Register() {
     if (
       !formData.name ||
       !formData.email ||
+      !formData.phone ||
+      !formData.address ||
       !formData.password ||
       !formData.confirmPassword
     ) {
 
-      alert("Please fill all fields");
+      showError("Please fill all fields");
+
+      return;
+    }
+
+    /* PHONE VALIDATION */
+
+    const phoneRegex = /^[0-9+\-\s()]{7,15}$/;
+
+    if (!phoneRegex.test(formData.phone)) {
+
+      showError("Please enter a valid phone number");
 
       return;
     }
@@ -59,7 +79,7 @@ function Register() {
 
     if (!emailRegex.test(formData.email)) {
 
-      alert("Invalid Email");
+      showError("Invalid Email");
 
       return;
     }
@@ -68,9 +88,7 @@ function Register() {
 
     if (formData.password.length < 6) {
 
-      alert(
-        "Password must be at least 6 characters"
-      );
+      showError("Password must be at least 6 characters");
 
       return;
     }
@@ -82,14 +100,32 @@ function Register() {
       formData.confirmPassword
     ) {
 
-      alert("Passwords do not match");
+      showError("Passwords do not match");
 
       return;
     }
 
-    alert("Account Created Successfully");
+    try {
 
-navigate("/");
+      setLoading(true);
+
+      await registerUser(formData);
+
+      showSuccess("Account Created Successfully");
+
+      // No token comes back from signup, so send them to log in
+      navigate("/login");
+
+    } catch (err) {
+
+      showError(err.message);
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
   };
 
   return (
@@ -151,6 +187,20 @@ navigate("/");
             />
 
             <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              onChange={handleChange}
+            />
+
+            <input
+              type="text"
+              name="address"
+              placeholder="Shipping Address"
+              onChange={handleChange}
+            />
+
+            <input
               type="password"
               name="password"
               placeholder="Password"
@@ -164,23 +214,21 @@ navigate("/");
               onChange={handleChange}
             />
 
-            <button type="submit">
-              Create My Account
+            <button type="submit" disabled={loading}>
+              {loading ? "Creating Account..." : "Create My Account"}
             </button>
 
           </form>
 
           <p className="bottom-text">
-
             Already have an account?
-
             <Link to="/login">
               <span> Login</span>
             </Link>
-<p>
-  By continuing, you agree to yarn_nyou's Terms of Service and Privacy Policy
+          </p>
 
-</p>
+          <p className="terms-text">
+            By continuing, you agree to yarn_nyou's Terms of Service and Privacy Policy
           </p>
 
         </div>

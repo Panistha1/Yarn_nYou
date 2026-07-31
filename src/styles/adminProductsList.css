@@ -1,0 +1,252 @@
+.admin-products-container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 24px;
+}
+
+.admin-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.admin-products-header h1 {
+  font-size: 2rem;
+  color: #5b3a3a;
+  margin-bottom: 4px;
+}
+
+.admin-subtext {
+  color: #8a7a7a;
+}
+
+.create-product-btn {
+  background: #e08a6d;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #fdf6f3;
+  border: 1px solid #f0dede;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #8a7a7a;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3a2a2a;
+}
+
+.stat-value.warning {
+  color: #c98a2e;
+}
+
+.search-row {
+  margin-bottom: 16px;
+}
+
+.search-row input {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #e3cccc;
+  border-radius: 24px;
+  font-size: 0.95rem;
+}
+
+.search-row input:focus {
+  outline: 2px solid #d99a9a;
+  outline-offset: 1px;
+}
+
+.loading-text {
+  color: #8a7a7a;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #f0dede;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.products-table th {
+  text-align: left;
+  background: #fdf6f3;
+  color: #5b3a3a;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0dede;
+}
+
+.products-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5e9e9;
+  font-size: 0.92rem;
+  color: #3a2a2a;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-cell img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f0dede;
+}
+
+.low-stock-tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #c98a2e;
+  background: #fdf1d8;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.status-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+.status-active {
+  background: #e3f3e6;
+  color: #2f8a4a;
+}
+
+.status-out {
+  background: #fbe6e6;
+  color: #c94c4c;
+}
+
+.actions-cell {
+  text-align: right;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #c94c4c;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #fbeaea;
+}
+
+.empty-row {
+  text-align: center;
+  color: #8a7a7a;
+  padding: 32px 0 !important;
+}
+
+.pagination-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: #8a7a7a;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagination-controls button {
+  background: #fff;
+  border: 1px solid #e3cccc;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .stats-row {
+    flex-direction: column;
+  }
+
+  .products-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.edit-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #5b3a3a;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #fdf6f3;
+}
+
+.products-table tbody tr:nth-child(even) {
+  background: #fdfbfa;
+}
+
+.products-table tbody tr:hover {
+  background: #fdf1ec;
+}
+
+.products-table tbody tr {
+  transition: background 0.15s ease;
+}

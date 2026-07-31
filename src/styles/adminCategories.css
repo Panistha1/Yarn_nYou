@@ -1,0 +1,160 @@
+.admin-categories-container {
+  padding: 32px 40px;
+  max-width: 900px;
+}
+
+.categories-header h1 {
+  color: #5b3a3a;
+  margin-bottom: 4px;
+}
+
+.admin-subtext {
+  color: #8a7a7a;
+  margin-bottom: 24px;
+}
+
+.add-category-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.add-category-form input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid #f0dede;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.add-category-form button {
+  background: #e08a6d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-category-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.categories-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.categories-table th {
+  text-align: left;
+  background: #fdfaf7;
+  color: #8a7a7a;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0dede;
+}
+
+.categories-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5eeee;
+  color: #3a2a2a;
+  font-size: 0.9rem;
+}
+
+.categories-table td input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #f0dede;
+  border-radius: 8px;
+}
+
+.categories-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-inline-btn,
+.save-inline-btn {
+  background: #e08a6d;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.delete-inline-btn,
+.cancel-inline-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #b45a5a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.delete-inline-btn:hover {
+  background: #fbeaea;
+}
+
+.loading-text,
+.empty-text {
+  color: #e9e0e0;
+  padding: 24px 0;
+}
+
+.categories-table tbody tr:nth-child(even) {
+  background: #fdfbfa;
+}
+
+.categories-table tbody tr:hover {
+  background: #fdf1ec;
+}
+
+.categories-table tbody tr {
+  transition: background 0.15s ease;
+}
+.restore-inline-btn {
+  background: transparent;
+  border: 1px solid #cfe0c9;
+  color: #2f8a4a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.restore-inline-btn:hover {
+  background: #eaf5ea;
+}
+
+.status-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+.status-active {
+  background: #e3f3e6;
+  color: #2f8a4a;
+}
+
+.status-deleted {
+  background: #ece5e5;
+  color: #8a7a7a;
+}
+
+.deleted-row {
+  opacity: 0.6;
+}

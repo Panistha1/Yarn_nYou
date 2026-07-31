@@ -1,0 +1,157 @@
+.admin-users-container {
+  padding: 32px 40px;
+  max-width: 1050px;
+}
+
+.users-header h1 {
+  color: #5b3a3a;
+  margin-bottom: 4px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.users-table th {
+  text-align: left;
+  background: #fdfaf7;
+  color: #8a7a7a;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0dede;
+}
+
+.users-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f5eeee;
+  color: #3a2a2a;
+  font-size: 0.9rem;
+}
+
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.role-admin {
+  background: #fdeee3;
+  color: #e08a6d;
+}
+
+.role-customer {
+  background: #e3f3e6;
+  color: #2f8a4a;
+}
+
+.toggle-role-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #b45a5a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toggle-role-btn:hover {
+  background: #fbeaea;
+}
+
+.toggle-role-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.self-tag {
+  color: #8a7a7a;
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.loading-text,
+.empty-text {
+  color: #8a7a7a;
+  padding: 24px 0;
+}
+
+.users-table tbody tr:nth-child(even) {
+  background: #fdfbfa;
+}
+
+.users-table tbody tr:hover {
+  background: #fdf1ec;
+}
+
+.users-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.users-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+.status-active {
+  background: #e3f3e6;
+  color: #2f8a4a;
+}
+
+.status-deleted {
+  background: #ece5e5;
+  color: #8a7a7a;
+}
+
+.deleted-row {
+  opacity: 0.6;
+}
+
+.delete-inline-btn {
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #b45a5a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.delete-inline-btn:hover {
+  background: #fbeaea;
+}
+
+.delete-inline-btn:disabled,
+.toggle-role-btn:disabled,
+.restore-inline-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.restore-inline-btn {
+  background: transparent;
+  border: 1px solid #cfe0c9;
+  color: #2f8a4a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.restore-inline-btn:hover {
+  background: #eaf5ea;
+}

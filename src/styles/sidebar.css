@@ -1,0 +1,138 @@
+/* Shared by AdminSidebar.jsx and UserSidebar.jsx — every link, icon, and
+   logout button rule is identical between the two, so they use one set
+   of classes here instead of duplicating the same CSS twice. */
+
+.app-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 220px;
+  min-width: 220px;
+  padding: 24px 14px;
+  background: #fdfaf7;
+  border-right: 1px solid #f0dede;
+  box-sizing: border-box;
+}
+
+/* Both AdminSidebar and UserSidebar use this flush, full-height look,
+   and stay pinned in place under the (also sticky, 60px-tall) navbar
+   while the main content area scrolls past underneath. */
+.app-sidebar--flush {
+  min-height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  align-self: flex-start;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+}
+
+.app-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #8a7a7a;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.app-sidebar-link:hover {
+  background: #f6ebe8;
+  color: #5b3a3a;
+}
+
+.app-sidebar-link.active {
+  background: #e08a6d;
+  color: #fff;
+}
+
+.app-sidebar-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+  width: 20px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.app-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid #e3cccc;
+  color: #b45a5a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.app-sidebar-logout:hover {
+  background: #fbeaea;
+}
+
+@media (max-width: 900px) {
+  .app-sidebar {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .app-sidebar--flush {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #f0dede;
+  }
+
+  .app-sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .app-sidebar-logout {
+    width: auto;
+    margin-top: 8px;
+  }
+}
+
+
+/* ============================================
+   LAYOUT WRAPPERS — both flush to the viewport
+   edge, same as each other. Page-level spacing
+   (max-width/padding/margin) lives on each page's
+   own content container instead — exactly like
+   admin-dashboard-container etc. already did.
+   ============================================ */
+
+.admin-layout,
+.user-dashboard-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.admin-layout-main,
+.user-layout-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .admin-layout,
+  .user-dashboard-layout {
+    flex-direction: column;
+  }
+}
